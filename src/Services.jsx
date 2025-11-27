@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./services.css"
+import "./Services.css"
 const API = import.meta.env.VITE_API_URL;
 
 export default function Services() {
@@ -27,10 +27,9 @@ export default function Services() {
             <h1>Services</h1>
             <br /><br />
             <div className="service_container">
-               
                 {data.map((service) => (
                     <div className="img" key={service.id}>
-                        <img src={service.services_url} alt={service.name} id="image"  />
+                        <img src={service.services_url} alt={service.name} id="image" style={{objectFit : "fill"}} />
                         <h2 style={{ textAlign: "center" }}>{service.name}</h2>
                         <p>{service.description}</p>
                     </div>

@@ -1,55 +1,27 @@
-// config/db.js
+// Local-only MySQL pool (no SSL, no DATABASE_URL)
 import mysql from "mysql2/promise";
-import dotenv from "dotenv";
-dotenv.config();
 
-// Prefer a single connection URL; fall back to discrete vars if needed
-const URL_FROM_ENV =
-  process.env.DB_URL ||
-  process.env.DATABASE_URL ||
-  process.env.MYSQL_URL ||
-  null;
+const {
+  DB_HOST = "localhost",
+  DB_PORT = "3306",
+  DB_USER = "root",
+  DB_PASSWORD = "",
+  DB_NAME = "portfolio",
+} = process.env;
 
-const url = URL_FROM_ENV;
-const usingRailwayPublicProxy = (() => {
-  try {
-    return url ? new URL(url).hostname.endsWith("proxy.rlwy.net") : false;
-  } catch {
-    return false;
-  }
-})();
+if (!DB_HOST || !DB_USER || !DB_NAME) {
+  throw new Error("❌ DB_HOST/DB_USER/DB_NAME missing in .env");
+}
 
-const pool = url
-  ? mysql.createPool({
-      uri: url,                 // e.g. mysql://root:pwd@host:port/db
-      waitForConnections: true,
-      connectionLimit: 10,
-      maxIdle: 10,
-      idleTimeout: 60000,
-      enableKeepAlive: true,
-      keepAliveInitialDelay: 0,
-      // Only add SSL if you really need it. Most Railway MySQL connections work fine without this.
-      ssl: usingRailwayPublicProxy ? undefined : undefined
-      // If you *must* force TLS and see cert errors, try:
-      // ssl: { rejectUnauthorized: false }
-    })
-  : mysql.createPool({
-      host: process.env.DB_HOST,
-      port: Number(process.env.DB_PORT || 3306),
-      user: process.env.DB_USER || "root",
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      waitForConnections: true,
-      connectionLimit: 10,
-      maxIdle: 10,
-      idleTimeout: 60000,
-      enableKeepAlive: true,
-      keepAliveInitialDelay: 0,
-    });
+const pool = mysql.createPool({
+  host: DB_HOST,
+  port: Number(DB_PORT),
+  user: DB_USER,
+  password: "panhaleraj003",
+  database: DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  enableKeepAlive: true,
+});
 
-// Convenience helpers
-export default {
-  query: (...args) => pool.query(...args),
-  getConnection: () => pool.getConnection(),
-  pool,
-};
+export default pool;

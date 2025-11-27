@@ -12,7 +12,7 @@ try{
     }
     const sql = "INSERT INTO (name, email, message) VALUES(?,?,?)";
     const [result] = await pool.execute(sql, [name,email,message]);
-    return res.status(201).json({ok:true})
+    return res.status(201).json({ok:true, result})
     }catch (err){
         console.log("POST query failed",err);
         return res.status(400).json({error : "Database query failed"})

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import "./Info.css";
+import "./Info.css";
 
 const API = import.meta.env.VITE_API_URL;
 
@@ -35,7 +35,6 @@ export default function Info() {
       <h3></h3>
       <br />
 
-      {/* 🧩 Just plain text, no cards */}
       <section
         style={{
           maxWidth: "900px",
@@ -44,6 +43,7 @@ export default function Info() {
           fontSize: "1.2rem",
           color: "#333",
           lineHeight: "1.6",
+          className: "info-section"
         }}
       >
         {data.map((item) => (

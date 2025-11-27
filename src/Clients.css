@@ -1,24 +1,93 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Birthstone+Variable:wght@400;700&display=swap');
-
-@font-face {
-  font-family: "Mileast";
-  src: url("/fonts/Mileast-Regular.woff2") format("woff2"),
-       url("/fonts/Mileast-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
+.clients-page {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 0 1rem 3rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #ffffff;
 }
 
-@font-face {
-  font-family: "Mileast";
-  src: url("/fonts/Mileast-Italic.woff2") format("woff2"),
-       url("/fonts/Mileast-Italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
+.clients-title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
 }
 
+/* Grid layout */
+.clients-grid {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
 
+/* Mobile first: single column */
+.clients-grid {
+  grid-template-columns: 1fr;
+}
 
-.name{
-    font-family: "Garamond", serif;
+/* Small screens (≥ 480px): 2 columns */
+@media (min-width: 480px) {
+  .clients-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Medium+ screens (≥ 768px): auto-fit nice cards */
+@media (min-width: 768px) {
+  .clients-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.client-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo image */
+.client-logo {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+/* Placeholder when no logo */
+.client-placeholder {
+  width: 100%;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  background-color: #fafafa;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #555555;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* "View more" link */
+.clients-link {
+  display: inline-block;
+  margin: 2rem 0 1rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: rgb(190, 167, 15);
+  font-weight: 600;
+}
+
+.clients-link:hover {
+  text-decoration: underline;
+}
+
+.clients-divider {
+  max-width: 1000px;
+  margin: 1.5rem auto 0;
+  border: none;
+  border-top: 1px solid #eee;
 }

@@ -1,64 +1,135 @@
-/* Fixed header with hamburger */
+/* ===== WHITE NAVBAR (DESKTOP + MOBILE) ===== */
+
 .hb-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
+  z-index: 1000;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 0 16px;
-  z-index: 100;
-  background: transparent;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+                /* White navbar */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* Hamburger button */
-.hb-button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+/* Logo / brand */
+
+.hb-logo a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  color: #111827;
+}
+
+/* Desktop nav links */
+
+.hb-nav-links {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.hb-btn {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+             /* White buttons */
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  color: #111827;                    /* Dark text (visible on white) */
 }
 
-.hb-line {
-  width: 24px;
+.hb-btn:hover {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.hb-call-btn {
+ 
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.hb-call-btn:hover {
+  background: #0f172a;
+}
+
+/* Remove default link underline inside nav */
+
+.hb-nav-links a {
+  text-decoration: none;
+}
+
+/* ===== Hamburger button (mobile) ===== */
+
+.hamburger {
+  display: none;                     /* Shown only on mobile */
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  padding: 0.35rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: background 0.18s ease, border-color 0.18s ease;
+  color: black;
+}
+
+.hamburger span {
+  display: block;
+  width: 1.3rem;
   height: 2px;
-  background: #222;
-  margin: 3px 0;
-  transition: all 0.3s ease;
+  background: #111827;
+  border-radius: 20px;
+  transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
 }
 
-/* Turn hamburger into X */
-.hb-button.open .top {
-  transform: rotate(45deg) translate(5px, 5px);
+.hamburger:hover {
+  background: #111827;
+  border-color: #111827;
 }
-.hb-button.open .middle {
+
+.hamburger:hover span {
+  background: #ffffff;
+  color: black;
+}
+
+/* Animate hamburger into X */
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
   opacity: 0;
 }
-.hb-button.open .bottom {
-  transform: rotate(-45deg) translate(5px, -5px);
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
-/* 🔥 Fullscreen overlay menu */
+/* ===== Overlay Menu (mobile menu) ===== */
+
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(0, 0, 0, 0.92);   /* Dark backdrop */
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
+  z-index: 900;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99;
 }
 
 .menu-overlay.show {
@@ -70,23 +141,48 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
+  gap: 1.3rem;
 }
 
+.overlay-list a,
 .overlay-link {
-  background: transparent;
+  font-size: 1.3rem;
+  color: #ffffff;                    /* Light text for dark background */
+  text-decoration: none;
   border: none;
-  font-size: 1.8rem;
-  font-weight: 600;
+  background: none;
   cursor: pointer;
-  color: #222;
-  transition: color 0.2s ease;
-  font-family: system-ui, sans-serif;
+  padding: 0.5rem 1.5rem;
 }
 
+/* Optional hover style for overlay items */
+.overlay-list a:hover,
 .overlay-link:hover {
-  color: rgb(190, 167, 15);
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+  .hb-nav-links {
+    display: none;                   /* Hide desktop nav */
+  }
+
+  .hamburger {
+    display: inline-flex;            /* Show hamburger */
+  }
+
+  .hb-header {
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-list a,
+  .overlay-link {
+    font-size: 1.4rem;
+  }
 }
