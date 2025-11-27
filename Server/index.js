@@ -13,7 +13,10 @@ import infoRoutes from "./routes/info.js";
 const app = express();
 
 // CORS: allow localhost only, no envs, no throwing
-app.use(cors());         
+app.use(cors({
+  origin: ["https://amipatilai.netlify.app", "http://localhost:5173"],
+  credentials: true,
+}));         
 app.use(express.json());
 
 // Health
