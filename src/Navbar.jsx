@@ -50,12 +50,12 @@ export default function Navbar() {
               <b>Services</b>
             </button>
           </Link>
-          <button
+          {/* <button
             className="hb-btn"
             onClick={() => scrollToSection("contact")}
           >
             <b>Contact</b>
-          </button>
+          </button> */}
           <a href="tel:9156785678">
             <button className="hb-btn hb-call-btn">
               <b>Arrange a Call</b>
