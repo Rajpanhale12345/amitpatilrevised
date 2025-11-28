@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/" , async(req,res)=>{
     try{
-    const[rows]= await pool.query("SELECT * FROM INFO ORDER BY created_at DESC LIMIT 1")
+    const[rows]= await pool.query("SELECT * FROM info ORDER BY created_at DESC LIMIT 1")
     if(!rows.length) res.status(400).json({error : "Missing Data"})
     return res.json(rows)
 }catch(err){
