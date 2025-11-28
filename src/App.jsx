@@ -5,7 +5,7 @@ import Services from "./Services";
 const API = import.meta.env.VITE_API_URL;
 import "./App.css"
 import Contact from "./Contact";
-import Info from "./info";
+
 import Navbar from "./Navbar";
 import Home from "./Home";
 
