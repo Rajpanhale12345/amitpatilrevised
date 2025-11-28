@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./info.css";
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_BASE;
 
 export default function Info() {
   const [data, setData] = useState(null);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Clients.css";
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_BASE;
 
 export default function Clients() {
   const [data, setData] = useState(null);

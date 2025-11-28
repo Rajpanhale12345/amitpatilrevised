@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Clients from "./Clients";
 import Services from "./Services";
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_BASE;
 import "./Home.css"
 import Contact from "./Contact";
 import Info from "./info";

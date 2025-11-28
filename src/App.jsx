@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Clients from "./Clients";
 import Services from "./Services";
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_BASE;
 import "./App.css"
 import Contact from "./Contact";
 
