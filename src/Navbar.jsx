@@ -36,7 +36,7 @@ export default function Navbar() {
         {/* Desktop nav links */}
         <nav className="hb-nav-links">
           <Link to="/">
-            <button className="hb-btn">
+            <button className="hb-btn" style={{backgroundColor:"black"}}>
               <b style={{color : "white", backgroundColor : "black"}}>Home</b>
             </button>
           </Link>
