@@ -50,12 +50,7 @@ export default function Navbar() {
               <b style={{color : "white"}}>Services</b>
             </button>
           </Link>
-          {/* <button
-            className="hb-btn"
-            onClick={() => scrollToSection("contact")}
-          >
-            <b>Contact</b>
-          </button> */}
+          
           <a href="tel:9156785678">
             <button className="hb-btn hb-call-btn">
               <b style={{}}>Arrange a Call</b>
@@ -94,14 +89,7 @@ export default function Navbar() {
               Services
             </Link>
           </li>
-          <li>
-            <button
-              className="overlay-link"
-              onClick={() => scrollToSection("contact")}
-            >
-              Contact
-            </button>
-          </li>
+         
           <li>
             <a href="tel:9156785678" onClick={() => setOpen(false)}>
               Arrange a Call
