@@ -58,7 +58,7 @@ export default function Navbar() {
           </button> */}
           <a href="tel:9156785678">
             <button className="hb-btn hb-call-btn">
-              <b>Arrange a Call</b>
+              <b style={{}}>Arrange a Call</b>
             </button>
           </a>
         </nav>

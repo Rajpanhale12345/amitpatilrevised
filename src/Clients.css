@@ -1,27 +1,45 @@
+/* =============== CLIENTS PAGE WRAPPER =============== */
+
 .clients-page {
-  text-align: center;
   margin-top: 4rem;
-  padding: 0 1rem 3rem;
+  padding: 0 1.5rem 3rem;
+  text-align: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #ffffff;
+  color: #03444f;
 }
+
+/* =============== TITLE =============== */
 
 .clients-title {
-  margin-bottom: 1rem;
-  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
 }
 
-/* Grid layout */
+.clients-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.35rem;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c8a600, #03444f);
+}
+
+/* =============== GRID LAYOUT =============== */
+
 .clients-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
   max-width: 1000px;
-  margin: 2rem auto 0;
-}
-
-/* Mobile first: single column */
-.clients-grid {
-  grid-template-columns: 1fr;
+  margin: 2.5rem auto 0;
+  grid-template-columns: 1fr; /* mobile first */
 }
 
 /* Small screens (≥ 480px): 2 columns */
@@ -34,30 +52,54 @@
 /* Medium+ screens (≥ 768px): auto-fit nice cards */
 @media (min-width: 768px) {
   .clients-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   }
 }
 
+/* =============== CLIENT CARD =============== */
+
 .client-card {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(3, 68, 79, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-/* Logo image */
-.client-logo {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
+.client-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+  border-color: rgba(200, 166, 0, 0.6);
   background-color: #ffffff;
 }
 
-/* Placeholder when no logo */
+/* =============== LOGO IMAGE =============== */
+
+.client-logo {
+  width: 100%;
+  max-width: 220px;
+  height: 140px;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* Bigger logos on larger screens */
+@media (min-width: 768px) {
+  .client-logo {
+    height: 160px;
+    max-width: 240px;
+  }
+}
+
+/* Placeholder when no logo (if you ever use it) */
 .client-placeholder {
   width: 100%;
   height: 120px;
@@ -69,25 +111,42 @@
   color: #555555;
   padding: 0.5rem;
   text-align: center;
+  border-radius: 12px;
 }
 
-/* "View more" link */
+/* =============== "VIEW MORE" LINK =============== */
+
 .clients-link {
   display: inline-block;
-  margin: 2rem 0 1rem;
-  font-size: 1.1rem;
+  margin: 2.5rem 0 1.25rem;
+  font-size: 1.05rem;
   text-decoration: none;
-  color: rgb(190, 167, 15);
   font-weight: 600;
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 166, 0, 0.8);
+  color: #c8a600;
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .clients-link:hover {
-  text-decoration: underline;
+  background: linear-gradient(90deg, #c8a600, #03444f);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
 }
+
+/* =============== DIVIDER =============== */
 
 .clients-divider {
   max-width: 1000px;
-  margin: 1.5rem auto 0;
+  margin: 1.75rem auto 0;
   border: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
