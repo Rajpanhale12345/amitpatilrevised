@@ -37,23 +37,23 @@ export default function Navbar() {
         <nav className="hb-nav-links">
           <Link to="/">
             <button className="hb-btn">
-              <b style={{color : "white"}}>Home</b>
+              <b style={{color : "white", backgroundColor : "black"}}>Home</b>
             </button>
           </Link>
           <Link to="/clients">
             <button className="hb-btn">
-              <b style={{color : "white"}}>Clients</b>
+              <b style={{color : "white", backgroundColor : "black"}}>Clients</b>
             </button>
           </Link>
           <Link to="/services">
             <button className="hb-btn">
-              <b style={{color : "white"}}>Services</b>
+              <b style={{color : "white", backgroundColor : "black"}}>Services</b>
             </button>
           </Link>
           
           <a href="tel:9156785678">
             <button className="hb-btn hb-call-btn">
-              <b style={{}}>Arrange a Call</b>
+              <b style={{color : "white", backgroundColor : "black"}}>Arrange a Call</b>
             </button>
           </a>
         </nav>
