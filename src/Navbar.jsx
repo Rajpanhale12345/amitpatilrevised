@@ -41,18 +41,18 @@ export default function Navbar() {
             </button>
           </Link>
           <Link to="/clients">
-            <button className="hb-btn">
+            <button className="hb-btn" style={{backgroundColor:"black"}}>
               <b style={{color : "white", backgroundColor : "black"}}>Clients</b>
             </button>
           </Link>
           <Link to="/services">
-            <button className="hb-btn">
+            <button className="hb-btn" style={{backgroundColor:"black"}}>
               <b style={{color : "white", backgroundColor : "black"}}>Services</b>
             </button>
           </Link>
           
           <a href="tel:9156785678">
-            <button className="hb-btn hb-call-btn">
+            <button className="hb-btn hb-call-btn" style={{backgroundColor:"black"}}>
               <b style={{color : "white", backgroundColor : "black"}}>Arrange a Call</b>
             </button>
           </a>
