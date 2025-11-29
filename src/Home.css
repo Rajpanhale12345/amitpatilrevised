@@ -1,4 +1,4 @@
-*{
+/* *{
   background: linear-gradient(180deg,#bbf1f9 0%, #d6eeef 200%);
   color: rgb(0, 0, 0);
  font-family: "Garamond", serif;
@@ -57,7 +57,7 @@ font-size: 80px;
    display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 3px solid; /* optional cursor effect */
+  border-right: 3px solid;
   animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
 }
 
@@ -94,4 +94,163 @@ align-items: center;
  .bio{
         margin-left: 6%;
     }
+} */
+
+
+/* Global reset-ish */
+* {
+  box-sizing: border-box;
+}
+
+/* Page background + base font */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg,#bbf1f9 0%, #d6eeef 200%);
+  color: #000;
+  font-family: "Garamond", serif;
+}
+
+/* React root wrapper */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* OPTIONAL: if you still use the Vite logo stuff */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* -------- MAIN LAYOUT -------- */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Image styling */
+.image {
+  width: 45%;
+  max-width: 420px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Text block */
+.desc {
+  flex: 1;
+  text-align: left;
+}
+
+/* Title / name */
+.name {
+  /* responsive font size: min 2.4rem, max 4.5rem */
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  margin: 0 0 0.5rem;
+}
+
+/* Bio with typing effect */
+.bio {
+  font-size: clamp(1.1rem, 2.3vw, 1.8rem);
+  color: rgb(190, 167, 15);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid; /* cursor effect */
+  animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+  max-width: 100%;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* --------- RESPONSIVE: TABLET & DOWN --------- */
+@media (max-width: 900px) {
+  #root {
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+  .image {
+    width: 70%;
+    max-width: 360px;
+  }
+}
+
+/* --------- RESPONSIVE: SMALL MOBILE --------- */
+@media (max-width: 600px) {
+  #root {
+    padding: 1.25rem 1rem;
+  }
+
+  .image {
+    width: 80%;
+    max-width: 320px;
+    margin-top: 0;
+  }
+
+  .name {
+    font-size: 2.2rem; /* override if needed */
+  }
+
+  .bio {
+    font-size: 1rem;
+    white-space: normal;        /* allow wrapping on very small screens */
+    border-right: none;         /* optional: remove cursor on wrap */
+    animation: typing 4s steps(30, end);
+  }
 }

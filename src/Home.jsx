@@ -44,12 +44,6 @@ export default function Home() {
           className="image"
             src={photo}
             alt="Profile"
-            width="55%"
-            height="55%"
-            style={{
-              objectFit: "cover",
-              marginTop : "-90px"
-            }}
           />
           <div className="desc">
             <p className="name">{data.title}</p>
